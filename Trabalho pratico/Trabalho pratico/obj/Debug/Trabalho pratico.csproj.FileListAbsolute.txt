@@ -1,7 +1,0 @@
-C:\Users\55379\Desktop\Projetos Faculdade\Quarto Período\Grafos\Trabalho pratico\Trabalho pratico\bin\Debug\Trabalho pratico.exe.config
-C:\Users\55379\Desktop\Projetos Faculdade\Quarto Período\Grafos\Trabalho pratico\Trabalho pratico\bin\Debug\Trabalho pratico.exe
-C:\Users\55379\Desktop\Projetos Faculdade\Quarto Período\Grafos\Trabalho pratico\Trabalho pratico\bin\Debug\Trabalho pratico.pdb
-C:\Users\55379\Desktop\Projetos Faculdade\Quarto Período\Grafos\Trabalho pratico\Trabalho pratico\obj\Debug\Trabalho pratico.csproj.AssemblyReference.cache
-C:\Users\55379\Desktop\Projetos Faculdade\Quarto Período\Grafos\Trabalho pratico\Trabalho pratico\obj\Debug\Trabalho pratico.csproj.CoreCompileInputs.cache
-C:\Users\55379\Desktop\Projetos Faculdade\Quarto Período\Grafos\Trabalho pratico\Trabalho pratico\obj\Debug\Trabalho pratico.exe
-C:\Users\55379\Desktop\Projetos Faculdade\Quarto Período\Grafos\Trabalho pratico\Trabalho pratico\obj\Debug\Trabalho pratico.pdb
