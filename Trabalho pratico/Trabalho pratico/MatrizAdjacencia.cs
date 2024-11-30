@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Trabalho_pratico
 {
-    internal class MatrizAdjacencia: Grafo
+    internal class MatrizAdjacencia : Grafo
     {
         private int[,] matrizAdj;
 
@@ -21,8 +17,8 @@ namespace Trabalho_pratico
             for (int i = 0; i < arestas; i++)
             {
                 Console.WriteLine($"Digite os detalhes da aresta {i + 1}:");
-                Console.Write("Vértice de origem: "); 
-                int origem = int.Parse(Console.ReadLine()) - 1; 
+                Console.Write("Vértice de origem: ");
+                int origem = int.Parse(Console.ReadLine()) - 1;
                 Console.Write("Vértice de destino: ");
                 int destino = int.Parse(Console.ReadLine()) - 1;
                 Console.Write("Peso: ");
@@ -55,7 +51,7 @@ namespace Trabalho_pratico
             // Linhas da matriz
             for (int i = 0; i < vertices; i++)
             {
-                Console.Write($"{i + 1,2} "); 
+                Console.Write($"{i + 1,2} ");
                 for (int j = 0; j < vertices; j++)
                 {
                     Console.Write($"{matrizAdj[i, j],4} ");
@@ -93,6 +89,37 @@ namespace Trabalho_pratico
         {
 
         }
+        public override void formatoDIMAC()
+        {
 
+        }
+        public override void TrocarVertices(int vertice1, int vertice2)
+        {
+
+        }
+
+        public override void BuscaEmLargura(int verticeInicial)
+        {
+
+        }
+        public override void DFS(int verticeInicial)
+        {
+
+        }
+
+        public override void Dijkstra(int origem, int destino)
+        {
+
+        }
+        public override void FloydWarshall()
+        {
+            
+        }
+        public override void ImprimirArestasAdjacentesPorAresta(int origem, int destino)
+        {
+
+        }
     }
+
+    
 }

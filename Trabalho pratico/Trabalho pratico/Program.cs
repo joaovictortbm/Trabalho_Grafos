@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Trabalho_pratico
 {
     internal class Program
     {
         static void Main(string[] args)
-        {           
+        {
             Console.Write("Digite a quantidade de vértices: ");
             int vertices = int.Parse(Console.ReadLine());
 
@@ -30,81 +26,138 @@ namespace Trabalho_pratico
                 grafo = new ListaAdjacencia(vertices, arestas);
             }
             Console.Clear();
-            Console.WriteLine("Grafo contruído");
+            Console.WriteLine("Grafo construído com sucesso!");
 
             // Menu para interação do usuário
-            int escolha = 1;
+
+            int escolha = -1;
             while (escolha != 0)
-            {             
+            {
+                Console.WriteLine("\nEscolha uma das opções abaixo:");
                 Console.WriteLine("1 - Imprimir grafo");
-                Console.WriteLine("2 - Imprimir vértices adjacentes a um vertice v");
-                Console.WriteLine("3 - Imprimir arestas incidentes a um vértice v");
-                Console.WriteLine("4 - Imprimir os vértices incidentes a uma aresta a");
-                Console.WriteLine("5 - Imprimir grau de um vértice v");
+                Console.WriteLine("2 - Imprimir vértices adjacentes a um vértice");
+                Console.WriteLine("3 - Imprimir arestas incidentes a um vértice");
+                Console.WriteLine("4 - Imprimir os vértices incidentes a uma aresta");
+                Console.WriteLine("5 - Imprimir grau de um vértice");
                 Console.WriteLine("6 - Verificar se dois vértices são adjacentes");
-                Console.WriteLine("7 - Substituir o peso de uma aresta a");
+                Console.WriteLine("7 - Substituir o peso de uma aresta");
+                Console.WriteLine("8 - Imprimir grafo no formato DIMAC");
+                Console.WriteLine("9 - Trocar dois vértices");
+                Console.WriteLine("10 - Fazer busca em largura (BFS)");
+                Console.WriteLine("11 - Fazer busca em profundidade (DFS)");
+                Console.WriteLine("12 - Algoritmo de Dijkstra");
+                Console.WriteLine("13 - Algoritmo de Floyd-Warshall");
+                Console.WriteLine("14 - Imprimir arestas adjacentes a uma aresta");
                 Console.WriteLine("0 - Sair");
-                Console.WriteLine("O que deseja fazer?");
+
+                Console.Write("Escolha uma opção (0 para sair): ");
                 escolha = int.Parse(Console.ReadLine());
-                if (escolha == 1) 
+
+                switch (escolha)
                 {
+                    case 1:
                         grafo.Imprimir();
-                        Console.WriteLine();
-                }
-                else if (escolha == 2)
-                {
-                    Console.WriteLine("Deseja encontrar os adjacentes de qual vertice?");
-                    int vSelecionado = int.Parse(Console.ReadLine());
-                    grafo.ImprimirVerticesAdjacentes(vSelecionado);
-                    Console.WriteLine();
-                }
-                else if (escolha == 3)
-                {
-                    Console.WriteLine("Deseja encontrar as arestas incidentes de qual vertice?");
-                    int verticeSelecionado = int.Parse(Console.ReadLine());
-                    grafo.ImprimirArestasIncidentesAoVertice(verticeSelecionado);
-                    Console.WriteLine();
-                }
-                else if (escolha == 4)
-                {
-                    Console.WriteLine("Insira o vértice de origem da aresta");
-                    int vOrigem = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Insira o vértice de destino da aresta");
-                    int vDestino = int.Parse(Console.ReadLine());
-                    grafo.ImprimirVerticesIncidentesAresta(vOrigem, vDestino);
-                }
-                else if (escolha == 5)
-                {
-                    Console.WriteLine("Insira o vértice ");
-                    int VConsultGrau = int.Parse(Console.ReadLine());
-                    grafo.ImprimirGrauDoVertice(VConsultGrau);
-                }
-                else if (escolha == 6)
-                {
-                    Console.WriteLine("Insira o primeiro vértice" );
-                    int v1 = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Insira o segundo vértice");
-                    int v2 = int.Parse(Console.ReadLine());
-                    grafo.VerificarAdjacencia(v1, v2);
+                        break;
 
-                }
-                else if (escolha == 7)
-                {
-                    Console.WriteLine("Informe o vertice de origem");
-                    int vOrigem = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Informe o vertice de destino");
-                    int vDestino = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Insira o novo peso");
-                    int peso = int.Parse(Console.ReadLine());
-                    grafo.SubstituirPesoAresta(vOrigem,vDestino, peso);
+                    case 2:
+                        Console.Write("Digite o vértice para encontrar seus adjacentes: ");
+                        int vAdj = int.Parse(Console.ReadLine());
+                        grafo.ImprimirVerticesAdjacentes(vAdj);
+                        break;
 
+                    case 3:
+                        Console.Write("Digite o vértice para encontrar suas arestas incidentes: ");
+                        int vIncidente = int.Parse(Console.ReadLine());
+                        grafo.ImprimirArestasIncidentesAoVertice(vIncidente);
+                        break;
+
+                    case 4:
+                        Console.Write("Digite o vértice de origem da aresta: ");
+                        int vOrigem = int.Parse(Console.ReadLine());
+                        Console.Write("Digite o vértice de destino da aresta: ");
+                        int vDestino = int.Parse(Console.ReadLine());
+                        grafo.ImprimirVerticesIncidentesAresta(vOrigem, vDestino);
+                        break;
+
+                    case 5:
+                        Console.Write("Digite o vértice para consultar o grau: ");
+                        int vGrau = int.Parse(Console.ReadLine());
+                        grafo.ImprimirGrauDoVertice(vGrau);
+                        break;
+
+                    case 6:
+                        Console.Write("Digite o primeiro vértice para verificar a adjacência: ");
+                        int v1 = int.Parse(Console.ReadLine());
+                        Console.Write("Digite o segundo vértice para verificar a adjacência: ");
+                        int v2 = int.Parse(Console.ReadLine());
+                        grafo.VerificarAdjacencia(v1, v2);
+                        break;
+
+                    case 7:
+                        Console.Write("Digite o vértice de origem da aresta: ");
+                        int vOrigemPeso = int.Parse(Console.ReadLine());
+                        Console.Write("Digite o vértice de destino da aresta: ");
+                        int vDestinoPeso = int.Parse(Console.ReadLine());
+                        Console.Write("Digite o novo peso da aresta: ");
+                        int novoPeso = int.Parse(Console.ReadLine());
+                        grafo.SubstituirPesoAresta(vOrigemPeso, vDestinoPeso, novoPeso);
+                        break;
+
+                    case 8:
+                        grafo.formatoDIMAC();
+                        break;
+
+                    case 9:
+                        Console.Write("Digite o primeiro vértice para trocar: ");
+                        int v1Troca = int.Parse(Console.ReadLine());
+                        Console.Write("Digite o segundo vértice para trocar: ");
+                        int v2Troca = int.Parse(Console.ReadLine());
+                        grafo.TrocarVertices(v1Troca, v2Troca);
+                        break;
+
+                    case 10:
+                        Console.Write("Digite o vértice de origem para a busca em largura (BFS): ");
+                        int vBFS = int.Parse(Console.ReadLine());
+                        grafo.BuscaEmLargura(vBFS);
+                        break;
+
+                    case 11:
+                        Console.Write("Digite o vértice de origem para a busca em profundidade (DFS): ");
+                        int vDFS = int.Parse(Console.ReadLine());
+                        grafo.DFS(vDFS);
+                        break;
+
+                    case 12:
+                        Console.Write("Digite o vértice de origem para o algoritmo de Dijkstra: ");
+                        int origemDijkstra = int.Parse(Console.ReadLine());
+                        Console.Write("Digite o vértice de destino para o algoritmo de Dijkstra: ");
+                        int destinoDijkstra = int.Parse(Console.ReadLine());
+                        grafo.Dijkstra(origemDijkstra, destinoDijkstra);
+                        break;
+
+                    case 13:
+                        grafo.FloydWarshall();
+                        break;
+
+                    case 14:
+                        Console.Write("Digite o vértice de origem da aresta: ");
+                        int vOrigemAresta = int.Parse(Console.ReadLine());
+                        Console.Write("Digite o vértice de destino da aresta: ");
+                        int vDestinoAresta = int.Parse(Console.ReadLine());
+                        grafo.ImprimirArestasAdjacentesPorAresta(vOrigemAresta, vDestinoAresta);
+                        break;
+
+                    case 0:
+                        Console.WriteLine("Saindo...");
+                        break;
+
+                    default:
+                        Console.WriteLine("Opção inválida. Tente novamente.");
+                        break;
                 }
 
+                Console.WriteLine(); 
             }
-
-
-            Console.ReadLine();
         }
-
     }
 }

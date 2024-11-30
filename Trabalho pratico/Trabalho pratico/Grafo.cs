@@ -25,5 +25,13 @@ namespace Trabalho_pratico
         public abstract void ImprimirGrauDoVertice(int vertice);
         public abstract void VerificarAdjacencia(int vertice1, int vertice2);
         public abstract void SubstituirPesoAresta(int origem, int destino, int novoPeso);
+        public abstract void formatoDIMAC();
+        public abstract void TrocarVertices(int vertice1, int vertice2);
+
+        public abstract void BuscaEmLargura(int verticeInicial);
+        public abstract void DFS(int verticeInicial);
+        public abstract void Dijkstra(int origem, int destino);
+        public abstract void FloydWarshall();
+        public abstract void ImprimirArestasAdjacentesPorAresta(int origem, int destino);
     }
 }
