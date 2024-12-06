@@ -63,17 +63,79 @@ namespace Trabalho_pratico
 
 
 
-        public override void ImprimirVerticesAdjacentes(int aresta)
+        public override void ImprimirVerticesAdjacentes(int vertice)
         {
+            vertice--;
+            List<int> adjac = new List<int>();
+            int coluna = matrizAdj.GetLength(1);
+            int linha = matrizAdj.GetLength(0);
+
+            Console.WriteLine();
+            Console.WriteLine("Vertice Adjacente ao Vertice : " + (vertice + 1));
+            Console.WriteLine();
+
+            for (int i = 0; i < linha; i++)
+            {
+                if (matrizAdj[vertice, i] != 0 && !adjac.Contains(i + 1))
+                {
+                    Console.WriteLine($"({i + 1})");
+                    adjac.Add(i + 1);
+                }
+            }
+
+            for (int i = 0; i < coluna; i++)
+            {
+                if (matrizAdj[i, vertice] != 0 && !adjac.Contains(i + 1))
+                {
+                    Console.WriteLine($"({i + 1})");
+                    adjac.Add(i + 1);
+                }
+            }
         }
 
         public override void ImprimirArestasIncidentesAoVertice(int vertice)
         {
+            vertice--;
+            int coluna = matrizAdj.GetLength(1);
+            int linha = matrizAdj.GetLength(0);
+
+            Console.WriteLine();
+            Console.WriteLine("Aresta Incidente ao Vertice : " + (vertice + 1));
+            Console.WriteLine();
+
+            for (int i = 0; i < linha; i++)
+            {
+                if (matrizAdj[vertice, i] != 0)
+                {
+                    Console.WriteLine($"({vertice + 1},{i + 1})");
+                }
+            }
+
+            for (int i = 0; i < coluna; i++)
+            {
+                if (matrizAdj[i, vertice] != 0)
+                {
+                    Console.WriteLine($"({i + 1},{vertice + 1})");
+                }
+            }
+
         }
 
         public override void ImprimirVerticesIncidentesAresta(int origem, int destino)
         {
+            Console.WriteLine();
+            Console.WriteLine($"Vertice Incidente a Aresta : ({origem},{destino})");
+            Console.WriteLine();
 
+            if (matrizAdj[origem - 1, destino - 1] != 0)
+            {
+                Console.WriteLine($"({origem})");
+                Console.WriteLine($"({destino})");
+            }
+            else
+            {
+                Console.WriteLine("Aresta não encontrada");
+            }
         }
 
         public override void ImprimirGrauDoVertice(int vertice)
@@ -321,9 +383,30 @@ namespace Trabalho_pratico
                 Console.WriteLine();
             }
         }
-        public override void ImprimirArestasAdjacentesPorAresta(int origem, int destino)
+         public override void ImprimirArestasAdjacentesPorAresta(int origem, int destino)
         {
+            int coluna = matrizAdj.GetLength(1);
+            int linha = matrizAdj.GetLength(0);
 
+            Console.WriteLine();
+            Console.WriteLine("Aresta Adjacente a Aresta : " + (origem));
+            Console.WriteLine();
+
+            for (int i = 0; i < linha; i++)
+            {
+                if (matrizAdj[origem - 1, i] != 0)
+                {
+                    Console.WriteLine($"({origem},{i+1})");
+                }
+            }
+
+            for (int i = 0; i < coluna; i++)
+            {
+                if (matrizAdj[i, origem - 1] != 0)
+                {
+                    Console.WriteLine($"({i+1},{origem})");
+                }
+            }
         }
     }
 
